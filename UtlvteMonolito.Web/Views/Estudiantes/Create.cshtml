@@ -1,0 +1,63 @@
+@model UtlvteMonolito.Web.Models.Estudiante
+
+@{
+    ViewData["Title"] = "Registrar Estudiante";
+}
+
+<div class="container mt-4" style="max-width: 600px;">
+    <div class="card shadow border-0">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0"><i class="bi bi-person-plus-fill"></i> Registrar Nuevo Estudiante</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Cedula" class="form-label fw-bold"></label>
+                    <input asp-for="Cedula" class="form-control" placeholder="Ej: 0801234567" />
+                    <span asp-validation-for="Cedula" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Nombres" class="form-label fw-bold"></label>
+                        <input asp-for="Nombres" class="form-control" />
+                        <span asp-validation-for="Nombres" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Apellidos" class="form-label fw-bold"></label>
+                        <input asp-for="Apellidos" class="form-control" />
+                        <span asp-validation-for="Apellidos" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CorreoInstitucional" class="form-label fw-bold"></label>
+                    <input asp-for="CorreoInstitucional" class="form-control" placeholder="ejemplo@utlvte.edu.ec" />
+                    <span asp-validation-for="CorreoInstitucional" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Carrera" class="form-label fw-bold"></label>
+                    <input asp-for="Carrera" class="form-control" placeholder="Ej: Tecnologías de la Información" />
+                    <span asp-validation-for="Carrera" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" asp-for="EstadoActivo" />
+                    <label class="form-check-label fw-bold" asp-for="EstadoActivo">Estudiante Activo</label>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Volver</a>
+                    <button type="submit" class="btn btn-success"><i class="bi bi-save"></i> Guardar Estudiante</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

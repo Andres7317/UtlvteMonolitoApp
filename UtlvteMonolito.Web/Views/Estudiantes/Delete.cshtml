@@ -1,0 +1,31 @@
+@model UtlvteMonolito.Web.Models.Estudiante
+
+@{
+    ViewData["Title"] = "Eliminar Estudiante";
+}
+
+<div class="container mt-4" style="max-width: 550px;">
+    <div class="card shadow border-0">
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0"><i class="bi bi-exclamation-triangle-fill"></i> Confirmar Eliminación</h4>
+        </div>
+        <div class="card-body">
+            <p class="text-muted">¿Está seguro de que desea eliminar permanentemente al siguiente estudiante?</p>
+
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item"><strong>Cédula:</strong> @Model.Cedula</li>
+                <li class="list-group-item"><strong>Nombres:</strong> @Model.Nombres @Model.Apellidos</li>
+                <li class="list-group-item"><strong>Correo:</strong> @Model.CorreoInstitucional</li>
+                <li class="list-group-item"><strong>Carrera:</strong> @Model.Carrera</li>
+            </ul>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Cancelar</a>
+                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i> Confirmar y Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

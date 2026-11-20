@@ -1,0 +1,48 @@
+@model UtlvteMonolito.Web.Models.Estudiante
+
+@{
+    ViewData["Title"] = "Detalle del Estudiante";
+}
+
+<div class="container mt-4" style="max-width: 550px;">
+    <div class="card shadow border-0">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0"><i class="bi bi-person-badge"></i> Detalle de Estudiante</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">Cédula</dt>
+                <dd class="col-sm-8 fw-bold">@Model.Cedula</dd>
+
+                <dt class="col-sm-4">Nombres</dt>
+                <dd class="col-sm-8">@Model.Nombres @Model.Apellidos</dd>
+
+                <dt class="col-sm-4">Correo</dt>
+                <dd class="col-sm-8">@Model.CorreoInstitucional</dd>
+
+                <dt class="col-sm-4">Carrera</dt>
+                <dd class="col-sm-8"><span class="badge bg-info text-dark">@Model.Carrera</span></dd>
+
+                <dt class="col-sm-4">Registro</dt>
+                <dd class="col-sm-8">@Model.FechaRegistro.ToString("dd/MM/yyyy")</dd>
+
+                <dt class="col-sm-4">Estado</dt>
+                <dd class="col-sm-8">
+                    @if (Model.EstadoActivo)
+                    {
+                        <span class="badge bg-success">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Inactivo</span>
+                    }
+                </dd>
+            </dl>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Volver</a>
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning"><i class="bi bi-pencil-square"></i> Editar</a>
+            </div>
+        </div>
+    </div>
+</div>
